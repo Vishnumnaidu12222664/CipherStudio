@@ -1,0 +1,92 @@
+:root{
+  --bg:#f6f7fb;
+  --panel:#fff;
+  --muted:#6b7280;
+  --primary:#2563eb;
+  --text:#111827;
+  --accent:#10b981;
+}
+[data-theme="dark"]{
+  --bg:#0b1220;
+  --panel:#071021;
+  --muted:#9ca3af;
+  --primary:#60a5fa;
+  --text:#e6eef8;
+  --accent:#34d399;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Roboto,system-ui;
+}
+.app{
+  display:flex;height:100vh;gap:12px;padding:12px;
+}
+.sidebar{
+  width:260px;background:var(--panel);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:8px;
+  box-shadow:0 6px 14px rgba(2,6,23,0.06);
+}
+.main{
+  flex:1;display:flex;flex-direction:column;background:transparent;
+}
+.header{
+  display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;
+}
+.controls{display:flex;gap:8px;align-items:center}
+.files-list{overflow:auto;padding:6px;border-radius:6px;border:1px solid rgba(0,0,0,0.04);background:transparent}
+.file-item{display:flex;justify-content:space-between;padding:6px;border-radius:6px;align-items:center}
+.file-item .name{cursor:pointer}
+.file-item.active{background:rgba(37,99,235,0.08);font-weight:600}
+.folder{font-weight:700;padding:6px;cursor:pointer}
+.create-row{display:flex;gap:8px;margin-top:8px}
+.btn{background:var(--primary);color:white;border:none;padding:6px 10px;border-radius:6px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--muted);border:1px solid rgba(0,0,0,0.06)}
+.small{padding:4px 8px;font-size:13px}
+.bottom-panel{display:flex;gap:8px;margin-top:8px}
+.preview-area{flex:1;border-radius:8px;overflow:hidden;border:1px solid rgba(0,0,0,0.06)}
+.right-column{width:40%;min-width:320px;display:flex;flex-direction:column;gap:8px}
+.editor-area{flex:1;border-radius:8px;overflow:hidden;border:1px solid rgba(0,0,0,0.06)}
+.terminal{background:#000;color:#0f0;padding:12px;font-family:monospace;height:240px;overflow:auto;border-radius:8px}
+.toolbar{display:flex;gap:8px;align-items:center}
+.switch{display:inline-flex;align-items:center;gap:6px}
+.inline-input{padding:6px;border-radius:6px;border:1px solid rgba(0,0,0,0.06);width:100%}
+.responsive-col{display:flex;gap:12px}
+@media (max-width:900px){
+  .app{flex-direction:column;padding:8px}
+  .sidebar{width:100%;display:flex;flex-direction:row;overflow:auto}
+  .main{width:100%}
+  .right-column{width:100%;min-width:0}
+}
+
+
+/* Split Pane styles */
+.SplitPane {
+  position: relative !important;
+}
+
+.Resizer {
+  background: #1e293b;
+  opacity: 0.2;
+  z-index: 1;
+  box-sizing: border-box;
+  background-clip: padding-box;
+}
+
+.Resizer:hover {
+  transition: all 0.2s;
+  opacity: 0.5;
+}
+
+/* horizontal line (between editor & terminal) */
+.Resizer.horizontal {
+  height: 6px;
+  margin: -3px 0;
+  cursor: row-resize;
+}
+
+/* vertical line (between editor/terminal and preview) */
+.Resizer.vertical {
+  width: 6px;
+  margin: 0 -3px;
+  cursor: col-resize;
+}

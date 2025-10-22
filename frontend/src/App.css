@@ -1,0 +1,146 @@
+/* ========= Base Layout ========= */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 240px;
+  background: var(--sidebar);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  background: var(--bg);
+}
+
+/* ========= Header & Buttons ========= */
+.header {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toolbar, .bottom-panel {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.btn {
+  padding: 5px 10px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn.small {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* ========= Terminal ========= */
+.terminal {
+  background: #111;
+  color: #00ff90;
+  padding: 10px;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+/* ========= SplitPane Styling ========= */
+.Resizer {
+  background: var(--border);
+  opacity: 0.4;
+  z-index: 1;
+  box-sizing: border-box;
+  background-clip: padding-box;
+}
+
+.Resizer:hover {
+  transition: 0.2s;
+  opacity: 0.8;
+}
+
+.Resizer.horizontal {
+  height: 6px;
+  margin: -3px 0;
+  cursor: row-resize;
+  width: 100%;
+}
+
+.Resizer.vertical {
+  width: 6px;
+  margin: 0 -3px;
+  cursor: col-resize;
+}
+
+/* ========= Light & Dark Themes ========= */
+:root[data-theme='light'] {
+  --bg: #fafafa;
+  --text: #222;
+  --muted: #666;
+  --sidebar: #fff;
+  --border: #ddd;
+  --btn-bg: #e6e6e6;
+  --btn-text: #111;
+  --panel: #fff;
+}
+
+:root[data-theme='dark'] {
+  --bg: #0e0e0e;
+  --text: #e0e0e0;
+  --muted: #9ca3af;
+  --sidebar: #111;
+  --border: #333;
+  --btn-bg: #222;
+  --btn-text: #eee;
+  --panel: #181818;
+}
+
+/* ========= Scrollbars ========= */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
